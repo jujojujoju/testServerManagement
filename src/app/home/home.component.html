@@ -1,0 +1,48 @@
+<div class="container panel panel-default table-responsive">
+  <div class="panel-body">
+    <table class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Server</th>
+          <th>TAS</th>
+          <th>Name</th>
+          <th>Platform</th>
+          <th>Memory</th>
+          <th>OS</th>
+          <th>Version</th>
+          <th>State</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of servers">
+          <th>{{row.server}} <span class="co-name">{{row.owner}}</span></th>
+          <td>{{row.tas}}</td>
+          <td>{{row.name}}</td>
+          <td>{{row.plat}}</td>
+          <td>{{row.mem}} GB</td>
+          <td>{{row.os}}</td>
+          <td>{{row.version}}</td>
+          <td>
+            <span class="label
+              {{row.state.substring(0,5)=='READY'?'
+                label-success': row.state.substring(0,9)=='NOT_READY'?
+                  'label-danger':'label-warning'}}">
+              {{row.state}}
+            </span>
+          </td>
+          <td style="width:60px">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default btn-xs" title="Move to another TAS">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="btn btn-default btn-xs" title="Return to TAS 100">
+                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
