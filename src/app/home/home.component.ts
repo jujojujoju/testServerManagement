@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   moduleId: module.id,
@@ -53,4 +54,18 @@ export class HomeComponent {
       "state": "RUNNING"
     }
   ];
+
+  constructor(private http: HttpClient){
+    interface UserResponse {
+      login: string;
+      bio: string;
+      company: string;
+    }
+    this.http.get<UserResponse>('https://api.github.com/users/seeschweiler').subscribe(data => {
+      console.log("User Login: " + data.login);
+      console.log("Bio: " + data.bio);
+      console.log("Company: " + data.company);
+    });
+  }
+
 }
