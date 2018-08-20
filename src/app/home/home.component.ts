@@ -65,7 +65,12 @@ export class HomeComponent {
       console.log("User Login: " + data.login);
       console.log("Bio: " + data.bio);
       console.log("Company: " + data.company);
-    });
+      });
+      /*
+      "http://10.140.92." + tas_address + ":8080/api/testservers" // get test server list from tas address
+      "http://10.140.92." + tas_address + ":8080/api/testservers" + id // get test server info by id. needs loop
+      - if there is no test server matching with id, tas will return code 404
+      */
   }
 
 }
